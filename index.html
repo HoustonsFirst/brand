@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Houston's First Brand</title>
+<meta name="description" content="Brand standards for Houston's First Baptist Church: colors, typography, logo rules, voice, and writing style. Built for people and AI tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Gentium+Book+Plus&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate:#1A303A; --navy:#00365B; --sky:#40A2D8; --gray:#EDEEEF; --gray-25:#FBFBFB;
+    --slate-75:#53636B; --slate-25:#C6CBCD; --white:#FFFFFF;
+    --sans: Gibson, Montserrat, "Helvetica Neue", Arial, sans-serif;
+    --serif: "Tisa Pro", ff-tisa-web-pro, "Gentium Book Plus", Georgia, serif;
+    --cond: "Futura PT Condensed", futura-pt-condensed, "Barlow Condensed", "Arial Narrow", sans-serif;
+    --radius: 10px; --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family:var(--sans); font-weight:300; color:var(--slate); background:var(--white); line-height:1.6; }
+  a { color:var(--navy); font-weight:400; text-underline-offset:3px; }
+  a:focus-visible, button:focus-visible { outline:3px solid var(--sky); outline-offset:2px; }
+  .wrap { max-width:var(--max); margin:0 auto; padding:0 20px; }
+  .micro { font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; }
+  h1,h2,h3 { font-weight:300; color:var(--navy); line-height:1.15; margin:0 0 .4em; }
+  h1 { font-size:clamp(2.4rem,6vw,4rem); font-weight:200; }
+  h2 { font-size:clamp(1.8rem,3.5vw,2.4rem); }
+  h3 { font-size:1.2rem; font-weight:400; }
+  .sub { font-family:var(--serif); font-size:1.2rem; color:var(--slate-75); margin:0 0 1.5rem; }
+  section { padding:72px 0; }
+  section:nth-of-type(even) { background:var(--gray-25); }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.88em; }
+  code { background:var(--gray); padding:.1em .35em; border-radius:4px; }
+
+  /* Top bar + hero */
+  .top { background:var(--slate); color:var(--white); }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; max-width:var(--max); margin:0 auto; flex-wrap:wrap; }
+  .nav strong { font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:.85rem; }
+  .nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:4px 18px; margin:0; padding:0; }
+  .nav a { color:var(--white); font-weight:400; font-size:.9rem; text-decoration:none; }
+  .nav a:hover { text-decoration:underline; }
+  .hero { padding:56px 20px 80px; max-width:var(--max); margin:0 auto; }
+  .hero .micro { color:var(--sky); font-size:.9rem; }
+  .hero h1 { color:var(--white); margin-top:.3em; }
+  .hero p { max-width:640px; font-size:1.1rem; color:var(--slate-25); }
+  .btns { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+  .btn { display:inline-block; padding:12px 20px; border-radius:6px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:.85rem; text-decoration:none; }
+  .btn-brand { background:var(--sky); color:var(--slate); }          /* Sky + Slate text (4.8:1) */
+  .btn-ghost { border:1.5px solid var(--white); color:var(--white); }
+  .btn-primary { background:var(--navy); color:var(--white); }       /* Navy + white (12.5:1) */
+
+  /* Cards and grids */
+  .grid { display:grid; gap:16px; }
+  .g2 { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+  .g3 { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .g5 { grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+  .card { background:var(--white); border:1px solid var(--gray); border-radius:var(--radius); padding:20px; }
+  .card h3 { margin-bottom:.2em; }
+  .card p { margin:.3em 0 0; }
+  .tag { display:inline-block; font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--slate-75); }
+  ol.agent { counter-reset:a; list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+  ol.agent li { counter-increment:a; background:var(--white); border:1px solid var(--gray); border-radius:var(--radius); padding:14px 16px 14px 56px; position:relative; }
+  ol.agent li::before { content:counter(a); position:absolute; left:16px; top:12px; width:28px; height:28px; border-radius:50%; background:var(--navy); color:var(--white); font-weight:600; display:grid; place-items:center; font-size:.85rem; }
+
+  /* Color */
+  .swatch { border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray); background:var(--white); display:flex; flex-direction:column; }
+  .chip { height:120px; padding:14px; display:flex; flex-direction:column; justify-content:space-between; border:0; width:100%; text-align:left; cursor:pointer; font:inherit; }
+  .chip .name { font-weight:600; font-size:1.05rem; }
+  .chip .copy { font-size:.75rem; font-weight:400; opacity:.9; }
+  .meta { padding:12px 14px; font-size:.82rem; display:grid; gap:2px; }
+  .meta span { color:var(--slate-75); }
+  .tints { display:flex; height:28px; }
+  .tints button { flex:1; border:0; cursor:pointer; font-size:.68rem; font-weight:600; }
+  .seasons .row { display:flex; border-radius:8px; overflow:hidden; height:44px; }
+  .seasons .row div { flex:1; }
+  .seasons .card h3 { font-size:1rem; }
+
+  /* Tables */
+  table { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); border-radius:var(--radius); overflow:hidden; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray); vertical-align:top; }
+  th { font-weight:600; color:var(--navy); background:var(--gray); }
+  .scroll { overflow-x:auto; border:1px solid var(--gray); border-radius:var(--radius); }
+  .pill { display:inline-block; padding:6px 10px; border-radius:6px; font-weight:600; font-size:.85rem; min-width:150px; }
+  .ok { color:#1d6b33; font-weight:600; } .bad { color:#a3261b; font-weight:600; } .warn { color:#7a5200; font-weight:600; }
+
+  /* Type */
+  .spec { border-top:1px solid var(--gray); padding:18px 0; display:grid; grid-template-columns:200px 1fr; gap:16px; align-items:baseline; }
+  .spec .label { font-size:.85rem; }
+  .spec .label b { display:block; color:var(--navy); font-weight:600; }
+  @media (max-width:640px){ .spec { grid-template-columns:1fr; gap:4px; } }
+
+  /* Logo placeholders */
+  .logo-tile { aspect-ratio: 3 / 2; border-radius:var(--radius); display:grid; place-items:center; text-align:center; padding:16px; font-size:.85rem; }
+  .logo-tile.light { background:var(--white); border:1px dashed var(--slate-25); color:var(--slate-75); }
+  .logo-tile.dark { background:var(--slate); color:var(--slate-25); border:1px dashed var(--slate-75); }
+  ul.rules { padding-left:1.2em; margin:.4em 0 0; }
+  ul.rules li { margin:.25em 0; }
+
+  footer { background:var(--slate); color:var(--slate-25); padding:40px 0; font-size:.9rem; }
+  footer a { color:var(--white); }
+  .toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--navy); color:var(--white); padding:10px 16px; border-radius:6px; font-weight:400; opacity:0; transition:opacity .2s; pointer-events:none; }
+  .toast.show { opacity:1; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="nav" aria-label="Sections">
+    <strong>Houston's First · Brand</strong>
+    <ul>
+      <li><a href="#agents">For AI agents</a></li>
+      <li><a href="#files">Files</a></li>
+      <li><a href="#foundation">Foundation</a></li>
+      <li><a href="#color">Color</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#type">Typography</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#writing">Writing</a></li>
+    </ul>
+  </nav>
+  <div class="hero">
+    <div class="micro">Brand standards · <span data-version>v—</span></div>
+    <h1>Houston's First Brand</h1>
+    <p>The source of truth for how Houston's First Baptist Church looks, sounds, and writes. Made for staff, PATHMAKERS, vendors, and partners, and readable by AI tools.</p>
+    <div class="btns">
+      <a class="btn btn-brand" href="https://github.com/houstonsfirst/brand/blob/main/brand-guide.md">Read the brand guide</a>
+      <a class="btn btn-ghost" href="brand-tokens.json" download>Download tokens (JSON)</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="agents">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Agent instructions</div>
+    <h2>For AI agents</h2>
+    <p class="sub">Start with the tokens. Everything here is also available as plain files at this site's root.</p>
+    <ol class="agent">
+      <li>Use <a href="brand-tokens.json"><code>brand-tokens.json</code></a> for every color, font, and type value. Never guess a hex code. Use <code>semantic.*</code> tokens for UI.</li>
+      <li>Read <a href="voice-and-tone.md"><code>voice-and-tone.md</code></a> before writing copy, and run its review checklist before returning.</li>
+      <li>Check names, dates, times, and capitalization against <a href="writing-style-guide.md"><code>writing-style-guide.md</code></a>.</li>
+      <li>Follow <a href="brand-guide.md"><code>brand-guide.md</code></a> for logo, color, type, accessibility, and imagery.</li>
+      <li>Every link and CTA points to <strong>HoustonsFirst.org</strong>. Never write “HFBC” in public copy.</li>
+      <li>If a rule isn't covered, say so. Don't invent one.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="files">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Repository</div>
+    <h2>Key files</h2>
+    <p class="sub">Read them on GitHub, or fetch the raw files from this site.</p>
+    <div class="grid g3">
+      <div class="card"><span class="tag">Start here</span><h3>brand-tokens.json</h3><p>Colors (print and digital pairings), fonts, and type roles as W3C design tokens.</p><p><a href="brand-tokens.json">Raw</a> · <a href="https://github.com/houstonsfirst/brand/blob/main/brand-tokens.json">GitHub</a></p></div>
+      <div class="card"><span class="tag">Visual</span><h3>brand-guide.md</h3><p>Foundation, traits, audiences, logo, color, type, digital accessibility, imagery.</p><p><a href="brand-guide.md">Raw</a> · <a href="https://github.com/houstonsfirst/brand/blob/main/brand-guide.md">GitHub</a></p></div>
+      <div class="card"><span class="tag">Voice</span><h3>voice-and-tone.md</h3><p>How we sound by audience, moment, and channel; approved messaging; checklist.</p><p><a href="voice-and-tone.md">Raw</a> · <a href="https://github.com/houstonsfirst/brand/blob/main/voice-and-tone.md">GitHub</a></p></div>
+      <div class="card"><span class="tag">Mechanics</span><h3>writing-style-guide.md</h3><p>Church, campus, ministry, and event names; dates; times; divine terms; dashes.</p><p><a href="writing-style-guide.md">Raw</a> · <a href="https://github.com/houstonsfirst/brand/blob/main/writing-style-guide.md">GitHub</a></p></div>
+      <div class="card"><span class="tag">Assets</span><h3>assets/</h3><p>Logo exports (coming from Creative) and font guidance. Licensed fonts aren't included.</p><p><a href="https://github.com/houstonsfirst/brand/tree/main/assets">GitHub</a></p></div>
+      <div class="card"><span class="tag">Rights</span><h3>LICENSE.md</h3><p>© Houston's First Baptist Church. Use only for work for or on behalf of Houston's First.</p><p><a href="https://github.com/houstonsfirst/brand/blob/main/LICENSE.md">GitHub</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="foundation">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Who we are</div>
+    <h2>Foundation</h2>
+    <div class="grid g3" style="margin-bottom:28px">
+      <div class="card"><span class="tag">Mission · why we exist</span><h3>The Great Commission</h3><p>Matthew 28:19–20 (CSB)</p></div>
+      <div class="card"><span class="tag">Vision · who we are</span><h3>relevant biblical community</h3><p>Relevant · Biblical · Community</p></div>
+      <div class="card"><span class="tag">Strategy · what we do</span><h3>Gather, Grow, Give</h3><p>Give = serve, give, go</p></div>
+    </div>
+    <h3 style="color:var(--navy)">Five brand traits</h3>
+    <div class="grid g5">
+      <div class="card"><h3>Generous</h3><p style="font-family:var(--serif)">We have so much to be grateful for.</p></div>
+      <div class="card"><h3>Vibrant</h3><p style="font-family:var(--serif)">Life is full, and so are our hearts.</p></div>
+      <div class="card"><h3>Relational</h3><p style="font-family:var(--serif)">Connected hearts, shared journeys.</p></div>
+      <div class="card"><h3>Attentive</h3><p style="font-family:var(--serif)">Every person, every day.</p></div>
+      <div class="card"><h3>Genuine</h3><p style="font-family:var(--serif)">Real stories, real grace.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Palette</div>
+    <h2>Color</h2>
+    <p class="sub">Core colors lead every piece; accents highlight in moderation. Click a color to copy its HEX.</p>
+    <h3>Core</h3>
+    <div class="grid g3" id="core"></div>
+    <h3 style="margin-top:32px">Accent</h3>
+    <div class="grid g3" id="accent"></div>
+    <h3 style="margin-top:32px">Seasonal combinations</h3>
+    <div class="grid g5 seasons" id="seasons"></div>
+  </div>
+</section>
+
+<section id="accessibility">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Official for digital · 2026-10-02</div>
+    <h2>Digital accessibility</h2>
+    <p class="sub">For web, Rock, email, and app text and UI. Print and large display follow the printed guide.</p>
+    <div class="grid g2" style="margin-bottom:24px">
+      <div class="card"><h3>Rules</h3>
+        <ul class="rules">
+          <li>No white text on Sky, Apricot, or Kelly. Use <strong>Slate</strong> text.</li>
+          <li>Buttons: <strong>Navy with white</strong>, or <strong>Sky with Slate</strong>.</li>
+          <li>Sky text only at 24px+ (19px+ bold). Links and small CTAs use <strong>Navy</strong>.</li>
+          <li>Body copy: Slate on white or Gray, or white on Slate or Navy.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Buttons</h3>
+        <div class="btns" style="margin-top:8px">
+          <span class="btn btn-primary">Learn more</span>
+          <span class="btn btn-brand">Register</span>
+        </div>
+        <p style="margin-top:14px; font-size:.88rem">WCAG 2.x AA: 4.5:1 for normal text, 3:1 for large text and UI components. Ratios below are calculated live from the tokens.</p>
+      </div>
+    </div>
+    <div class="scroll"><table id="contrast"><thead><tr><th>Pairing</th><th>Sample</th><th>Ratio</th><th>Digital use</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<section id="type">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Typography</div>
+    <h2>Type</h2>
+    <p class="sub">Gibson, Tisa Pro, and Futura PT Condensed via Adobe Fonts. Specimens below render in the free Google Fonts alternatives.</p>
+    <div class="spec"><div class="label"><b>Microtitle</b>Gibson Semibold · Sky (alt: Montserrat 600)</div><div class="micro" style="color:var(--sky); font-size:1.5rem; letter-spacing:0; text-transform:none">Sun, June 2, 2024</div></div>
+    <div class="spec"><div class="label"><b>Headline</b>Gibson Light · Navy (alt: Montserrat 200–300)</div><div style="font-size:clamp(2rem,5vw,3.2rem); font-weight:200; color:var(--navy); line-height:1.1">This is our headline style</div></div>
+    <div class="spec"><div class="label"><b>Subheading</b>Tisa Pro Regular (alt: Gentium Book Plus)</div><div style="font-family:var(--serif); font-size:1.8rem; color:var(--slate)">Real Life. Real People.</div></div>
+    <div class="spec"><div class="label"><b>Body</b>Gibson Light · Slate (alt: Montserrat 300)</div><div>Welcome to Houston's First! We are a thriving and diverse community of real people experiencing real life together. We want to be the Church every day of the week.</div></div>
+    <div class="spec"><div class="label"><b>Compact body</b>Futura PT Condensed Book (alt: Barlow Condensed)</div><div style="font-family:var(--cond); font-size:1.05rem">Welcome to Houston's First! We are a thriving and diverse community of real people experiencing real life together.</div></div>
+    <div class="spec"><div class="label"><b>Call to action</b>Gibson Semibold, ALL CAPS</div><div><a class="btn btn-primary" href="#type" style="pointer-events:none">Learn more</a> <span style="margin-left:12px; font-size:.85rem; color:var(--slate-75)">Print: Sky text · Digital: Navy</span></div></div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Identity</div>
+    <h2>Logo</h2>
+    <p class="sub">Black or white only. Never brand colors. Logo exports are coming from the Creative Team.</p>
+    <div class="grid g3" style="margin-bottom:24px">
+      <div class="logo-tile light">Primary lockup (black)<br>for light backgrounds<br><em>Export coming</em></div>
+      <div class="logo-tile dark">Primary lockup (white)<br>for dark backgrounds<br><em>Export coming</em></div>
+      <div class="logo-tile light">Stacked · Mark only<br><em>Exports coming</em></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Use</h3>
+        <ul class="rules">
+          <li><strong>Campuswide</strong> logo for anything spanning more than one campus; campus logos only for single-campus audiences.</li>
+          <li><strong>Clearspace:</strong> half the logomark's height/width on all sides.</li>
+          <li><strong>Minimum height:</strong> primary 0.3 in (7.62 mm); stacked 0.75 in (19.05 mm).</li>
+          <li>Mark alone on print? “Houston's First Baptist Church” must appear on the piece.</li>
+          <li>Over dark backgrounds the mark may be 100% white or screened to 50%.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Never</h3>
+        <ul class="rules">
+          <li>Stretch, warp, skew, or slant it</li>
+          <li>Rearrange components or change the lettering</li>
+          <li>Recolor it or add effects (shadows, glows, outlines)</li>
+          <li>Place it on busy or low-contrast backgrounds</li>
+          <li>Add elements to or around it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="micro" style="color:var(--slate-75)">Mechanics</div>
+    <h2>Writing quick rules</h2>
+    <p class="sub">The full list lives in <a href="https://github.com/houstonsfirst/brand/blob/main/writing-style-guide.md">writing-style-guide.md</a>.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Topic</th><th>✅ This</th><th>❌ Not this</th></tr></thead>
+      <tbody>
+        <tr><td>Church name</td><td>Houston's First Baptist Church · Houston's First</td><td>HFBC · Houstons First · Houston First</td></tr>
+        <tr><td>Website</td><td>HoustonsFirst.org</td><td>houstonsfirst.org · www.HoustonsFirst.org · hfbc.org</td></tr>
+        <tr><td>Phone</td><td>713.681.8000</td><td>713-681-8000 · (713) 681-8000</td></tr>
+        <tr><td>Single date</td><td>Mon, June 17</td><td>June 17 · Mon, June 17th</td></tr>
+        <tr><td>Recurring</td><td>Wednesdays, Oct 5–26</td><td>Every Wednesday, June 5th–26th</td></tr>
+        <tr><td>Times</td><td>9a · 2:30p · Noon · 9–11a · 8a–10p</td><td>9 a.m. · 12p · 9a–11a · 8–10p</td></tr>
+        <tr><td>Date + time</td><td>Mon, Nov 28 @ 9a</td><td>Mon, Nov 28@9a · Mon, Nov 28, 9a</td></tr>
+        <tr><td>Divine terms</td><td>His · Bible · Gospel · biblical · godly · the Church (Body of Christ)</td><td>his (for God) · Biblical · Godly · “went to Church”</td></tr>
+        <tr><td>Campuses</td><td>The Loop Campus · Cypress Campus · Downtown Campus · Sienna Campus</td><td>Main Campus · HFBC Cypress · Español Campus</td></tr>
+        <tr><td>Volunteers</td><td>PATHMAKERS</td><td>Pathmakers</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© Houston's First Baptist Church · <a href="https://github.com/houstonsfirst/brand/blob/main/LICENSE.md">Usage rights</a> · <a href="https://github.com/houstonsfirst/brand">GitHub repository</a> · <a href="https://www.houstonsfirst.org">HoustonsFirst.org</a></p>
+    <p style="margin:0">Brand version <span data-version>—</span> · Content authority: Communications Team · Maintained by the Development Team</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- TOKENS:BEGIN (generated by scripts/embed-tokens.py from brand-tokens.json and VERSION; do not edit by hand) -->
+<script type="application/json" id="brand-tokens">{"$description":"Houston's First Baptist Church design tokens (W3C Design Tokens Community Group format). Source: Brand Experience Guide v1.0 (May 2024). See brand-guide.md for usage rules.","$extensions":{"org.houstonsfirst":{"version":"1.0.0","updated":"2026-10-02","owner":"Communications Team","logo":{"color":"Black or white only. Never brand colors.","clearspace":"Half the height/width of the logomark on all sides","minHeight":{"primary":{"in":0.3,"mm":7.62},"stacked":{"in":0.75,"mm":19.05}},"files":"assets/logos/ (see assets/README.md)"},"accessibility":"Digital text/UI follows WCAG 2.x AA (brand-guide.md §5, official 2026-10-02). color.*.textOn = digital pairing; textOnPrint = printed-guide pairing."}},"color":{"slate":{"base":{"$type":"color","$value":"#1A303A","$description":"Dark backgrounds, body copy","$extensions":{"org.houstonsfirst":{"rgb":[26,48,58],"cmyk":[86,66,56,56],"pms":"7546 C","textOn":"#FFFFFF"}}},"75":{"$type":"color","$value":"#53636B","$extensions":{"org.houstonsfirst":{"rgb":[83,99,107],"cmyk":[70,52,46,20],"textOn":"#FFFFFF"}}},"50":{"$type":"color","$value":"#8D979D","$extensions":{"org.houstonsfirst":{"rgb":[141,151,157],"cmyk":[48,34,33,1],"textOn":"#1A303A","note":"White text on Slate 50% is large-text only (3.0:1)"}}},"25":{"$type":"color","$value":"#C6CBCD","$extensions":{"org.houstonsfirst":{"rgb":[198,203,205],"cmyk":[22,15,15,0],"textOn":"#1A303A"}}}},"navy":{"base":{"$type":"color","$value":"#00365B","$description":"Headlines (primary color)","$extensions":{"org.houstonsfirst":{"rgb":[0,54,91],"cmyk":[100,80,38,30],"pms":"540 C","textOn":"#FFFFFF"}}},"75":{"$type":"color","$value":"#406884","$extensions":{"org.houstonsfirst":{"rgb":[64,104,132],"cmyk":[80,54,33,10],"textOn":"#FFFFFF"}}},"50":{"$type":"color","$value":"#809BAD","$extensions":{"org.houstonsfirst":{"rgb":[128,155,173],"cmyk":[53,31,24,0],"textOn":"#FFFFFF"}}},"25":{"$type":"color","$value":"#C0CCD6","$extensions":{"org.houstonsfirst":{"rgb":[192,204,214],"cmyk":[24,13,10,0],"textOn":"#1A303A"}}}},"sky":{"base":{"$type":"color","$value":"#40A2D8","$description":"Microtitles, calls-to-action, winter accent (secondary color)","$extensions":{"org.houstonsfirst":{"rgb":[64,162,216],"cmyk":[68,22,0,0],"pms":"298 C","textOn":"#1A303A","textOnPrint":"#FFFFFF"}}},"75":{"$type":"color","$value":"#70B9E2","$extensions":{"org.houstonsfirst":{"rgb":[112,185,226],"cmyk":[52,12,2,0],"textOn":"#1A303A"}}},"50":{"$type":"color","$value":"#A0D0EC","$extensions":{"org.houstonsfirst":{"rgb":[160,208,236],"cmyk":[35,6,2,0],"textOn":"#1A303A"}}},"25":{"$type":"color","$value":"#CFE8F6","$extensions":{"org.houstonsfirst":{"rgb":[207,232,246],"cmyk":[17,2,1,0],"textOn":"#1A303A"}}}},"gray":{"base":{"$type":"color","$value":"#EDEEEF","$description":"Light backgrounds","$extensions":{"org.houstonsfirst":{"rgb":[237,238,239],"cmyk":[5,3,3,0],"pms":"539 C","textOn":"#1A303A"}}},"25":{"$type":"color","$value":"#FBFBFB","$extensions":{"org.houstonsfirst":{"rgb":[251,251,251],"cmyk":[1,0,0,0],"textOn":"#1A303A"}}}},"apricot":{"base":{"$type":"color","$value":"#FE7A36","$description":"Spring or fall accent color","$extensions":{"org.houstonsfirst":{"rgb":[254,122,54],"cmyk":[0,65,86,0],"pms":"164 C","textOn":"#1A303A","textOnPrint":"#FFFFFF"}}},"75":{"$type":"color","$value":"#FE9C69","$extensions":{"org.houstonsfirst":{"rgb":[254,156,105],"cmyk":[0,47,61,0],"textOn":"#1A303A"}}},"50":{"$type":"color","$value":"#FEBC9B","$extensions":{"org.houstonsfirst":{"rgb":[254,188,155],"cmyk":[0,31,37,0],"textOn":"#1A303A"}}},"25":{"$type":"color","$value":"#FEDECD","$extensions":{"org.houstonsfirst":{"rgb":[254,222,205],"cmyk":[0,14,16,0],"textOn":"#1A303A"}}}},"kelly":{"base":{"$type":"color","$value":"#4CB963","$description":"Spring accent color","$extensions":{"org.houstonsfirst":{"rgb":[76,185,99],"cmyk":[70,0,83,0],"pms":"7479 C","textOn":"#1A303A","textOnPrint":"#FFFFFF"}}},"75":{"$type":"color","$value":"#79CA8A","$extensions":{"org.houstonsfirst":{"rgb":[121,202,138],"cmyk":[53,0,61,0],"textOn":"#1A303A"}}},"50":{"$type":"color","$value":"#A6DCB1","$extensions":{"org.houstonsfirst":{"rgb":[166,220,177],"cmyk":[35,0,38,0],"textOn":"#1A303A"}}},"25":{"$type":"color","$value":"#D2EED8","$extensions":{"org.houstonsfirst":{"rgb":[210,238,216],"cmyk":[17,0,18,0],"textOn":"#1A303A"}}}},"black":{"$type":"color","$value":"#000000","$description":"Logo on light backgrounds"},"white":{"$type":"color","$value":"#FFFFFF","$description":"Logo and text on dark backgrounds"}},"semantic":{"$type":"color","background":{"dark":{"$value":"{color.slate.base}"},"light":{"$value":"{color.gray.base}"},"subtle":{"$value":"{color.gray.25}"}},"text":{"body":{"$value":"{color.slate.base}"},"headline":{"$value":"{color.navy.base}"},"microtitle":{"$value":"{color.sky.base}","$description":"Sky microtitles: 24px+ (19px+ bold) on light backgrounds only; use text.headline (Navy) when smaller"},"inverse":{"$value":"{color.white}"},"muted":{"$value":"{color.slate.75}"}},"action":{"primary":{"$value":"{color.navy.base}","$description":"Primary button fill / link color (digital)"},"brand":{"$value":"{color.sky.base}","$description":"Secondary/brand button fill (digital). Pair with on-brand, never white text"},"on-brand":{"$value":"{color.slate.base}","$description":"Text on Sky buttons (4.8:1)"},"on-primary":{"$value":"{color.white}","$description":"Text on primary buttons (12.5:1)"},"link":{"$value":"{color.navy.base}","$description":"Links and small CTAs on light backgrounds"}},"logo":{"on-light":{"$value":"{color.black}"},"on-dark":{"$value":"{color.white}"}}},"season":{"core":{"$description":"Year-round","primary":{"$value":"{color.slate.base}"},"secondary":{"$value":"{color.navy.base}"},"accent":{"$value":"{color.sky.base}"},"background":{"$value":"{color.gray.base}"}},"winter":{"$description":"Winter","primary":{"$value":"{color.slate.base}"},"secondary":{"$value":"{color.navy.base}"},"accent":{"$value":"{color.sky.base}"},"background":{"$value":"{color.gray.base}"}},"spring-a":{"$description":"Spring (Kelly)","primary":{"$value":"{color.slate.base}"},"secondary":{"$value":"{color.sky.base}"},"accent":{"$value":"{color.kelly.base}"},"background":{"$value":"{color.gray.base}"}},"spring-b":{"$description":"Spring (Apricot)","primary":{"$value":"{color.slate.base}"},"secondary":{"$value":"{color.sky.base}"},"accent":{"$value":"{color.apricot.base}"},"background":{"$value":"{color.gray.base}"}},"fall":{"$description":"Fall","primary":{"$value":"{color.slate.base}"},"secondary":{"$value":"{color.navy.base}"},"accent":{"$value":"{color.apricot.base}"},"background":{"$value":"{color.gray.base}"}},"$type":"color"},"font":{"family":{"$type":"fontFamily","primary":{"$value":["Gibson","Montserrat","Helvetica Neue","Arial","sans-serif"],"$description":"Adobe Fonts; Montserrat is the free alternative"},"secondary":{"$value":["Tisa Pro","ff-tisa-web-pro","Gentium Book Plus","Georgia","serif"],"$description":"Subheadings; Gentium Book Plus is the free alternative"},"condensed":{"$value":["Futura PT Condensed","futura-pt-condensed","Barlow Condensed","Arial Narrow","sans-serif"],"$description":"Copy-dense small pieces; Barlow Condensed is the free alternative"}},"weight":{"$type":"fontWeight","light":{"$value":300},"book":{"$value":400},"semibold":{"$value":600}}},"typography":{"microtitle":{"$type":"typography","$value":{"fontFamily":"{font.family.primary}","fontWeight":"{font.weight.semibold}","letterSpacing":"0px"},"$description":"Gibson Semibold, tracking 0"},"headline":{"$type":"typography","$value":{"fontFamily":"{font.family.primary}","fontWeight":"{font.weight.light}","letterSpacing":"0px"},"$description":"Gibson Light, tracking 0; use Book when legibility needs more weight"},"subheading":{"$type":"typography","$value":{"fontFamily":"{font.family.secondary}","fontWeight":"{font.weight.book}","letterSpacing":"0px"},"$description":"Tisa Pro Regular, tracking 0"},"body":{"$type":"typography","$value":{"fontFamily":"{font.family.primary}","fontWeight":"{font.weight.light}","letterSpacing":"0px"},"$description":"Gibson Light"},"cta":{"$type":"typography","$value":{"fontFamily":"{font.family.primary}","fontWeight":"{font.weight.semibold}","letterSpacing":"0px"},"$description":"Gibson Semibold, tracking 0"},"compact-body":{"$type":"typography","$value":{"fontFamily":"{font.family.condensed}","fontWeight":"{font.weight.book}","letterSpacing":"0px"},"$description":"Futura PT Condensed Book"}}}</script>
+<script type="application/json" id="brand-meta">{"version": "1.0.0"}</script>
+<!-- TOKENS:END -->
+
+<script>
+(function () {
+  var T = JSON.parse(document.getElementById('brand-tokens').textContent || '{}');
+  var META = JSON.parse(document.getElementById('brand-meta').textContent || '{}');
+  var X = 'org.houstonsfirst';
+  document.querySelectorAll('[data-version]').forEach(function (el) { el.textContent = 'v' + (META.version || '?'); });
+  if (!T.color) return;
+
+  // ---- helpers
+  function hex(name, step) { var c = T.color[name] && T.color[name][step || 'base']; return c ? c.$value : null; }
+  function ext(name, step) { var c = T.color[name] && T.color[name][step || 'base']; return (c && c.$extensions && c.$extensions[X]) || {}; }
+  function lum(h) {
+    var c = [1, 3, 5].map(function (i) { var v = parseInt(h.substr(i, 2), 16) / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function ratio(a, b) { var x = lum(a), y = lum(b); var hi = Math.max(x, y), lo = Math.min(x, y); return (hi + 0.05) / (lo + 0.05); }
+  function resolve(ref) { var m = /^\{color\.([a-z]+)\.?([a-z0-9]*)\}$/.exec(ref || ''); if (!m) return ref; return m[2] ? hex(m[1], m[2]) : (T.color[m[1]].$value || hex(m[1])); }
+  var toast = document.getElementById('toast');
+  function copy(v) {
+    try { navigator.clipboard.writeText(v).then(function () { show('Copied ' + v); }, function () { show(v); }); } catch (e) { show(v); }
+  }
+  function show(msg) { toast.textContent = msg; toast.classList.add('show'); clearTimeout(show.t); show.t = setTimeout(function () { toast.classList.remove('show'); }, 1400); }
+  function title(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  // ---- swatches
+  function swatch(name) {
+    var h = hex(name), e = ext(name), base = T.color[name].base;
+    var on = e.textOn || '#FFFFFF';
+    var el = document.createElement('div'); el.className = 'swatch';
+    var chip = document.createElement('button'); chip.className = 'chip'; chip.type = 'button';
+    chip.style.background = h; chip.style.color = on;
+    chip.setAttribute('aria-label', 'Copy ' + title(name) + ' ' + h);
+    chip.innerHTML = '<span class="name">' + title(name) + '</span><span class="copy">' + h + ' · click to copy</span>';
+    chip.onclick = function () { copy(h); };
+    el.appendChild(chip);
+    var steps = ['75', '50', '25'].filter(function (s) { return T.color[name][s]; });
+    if (steps.length) {
+      var t = document.createElement('div'); t.className = 'tints';
+      steps.forEach(function (s) {
+        var b = document.createElement('button'); b.type = 'button'; var th = hex(name, s);
+        b.style.background = th; b.style.color = ext(name, s).textOn || '#1A303A'; b.textContent = s + '%';
+        b.title = title(name) + ' ' + s + '% · ' + th; b.setAttribute('aria-label', 'Copy ' + title(name) + ' ' + s + '% ' + th);
+        b.onclick = function () { copy(th); }; t.appendChild(b);
+      });
+      el.appendChild(t);
+    }
+    var meta = document.createElement('div'); meta.className = 'meta';
+    meta.innerHTML =
+      (base.$description ? '<div>' + base.$description + '</div>' : '') +
+      '<div><span>RGB</span> ' + (e.rgb || []).join(', ') + '</div>' +
+      '<div><span>CMYK</span> ' + (e.cmyk || []).join(', ') + '</div>' +
+      (e.pms ? '<div><span>PMS</span> ' + e.pms + '</div>' : '') +
+      '<div><span>Digital text on</span> ' + (on.toUpperCase() === '#FFFFFF' ? 'White' : 'Slate') +
+      (e.textOnPrint && e.textOnPrint !== on ? ' <span>(print: White)</span>' : '') + '</div>';
+    el.appendChild(meta);
+    return el;
+  }
+  ['slate', 'navy', 'sky', 'gray'].forEach(function (n) { document.getElementById('core').appendChild(swatch(n)); });
+  ['apricot', 'kelly'].forEach(function (n) { document.getElementById('accent').appendChild(swatch(n)); });
+
+  // ---- seasons
+  var S = T.season || {};
+  Object.keys(S).filter(function (k) { return k.charAt(0) !== '$'; }).forEach(function (k) {
+    var s = S[k], card = document.createElement('div'); card.className = 'card';
+    var cols = ['primary', 'secondary', 'background', 'accent'].map(function (r) { return s[r] && resolve(s[r].$value); }).filter(Boolean);
+    card.innerHTML = '<h3>' + (s.$description || k) + '</h3><div class="row">' + cols.map(function (c) { return '<div style="background:' + c + '" title="' + c + '"></div>'; }).join('') + '</div>';
+    document.getElementById('seasons').appendChild(card);
+  });
+
+  // ---- live contrast table
+  var W = '#FFFFFF';
+  var pairs = [
+    ['White on Slate', W, hex('slate')], ['White on Navy', W, hex('navy')], ['Navy on white', hex('navy'), W],
+    ['Slate on Gray', hex('slate'), hex('gray')], ['Slate on Sky', hex('slate'), hex('sky')],
+    ['Slate on Apricot', hex('slate'), hex('apricot')], ['Slate on Kelly', hex('slate'), hex('kelly')],
+    ['White on Slate 50%', W, hex('slate', '50')], ['Sky on white', hex('sky'), W],
+    ['White on Sky', W, hex('sky')], ['White on Apricot', W, hex('apricot')], ['White on Kelly', W, hex('kelly')]
+  ];
+  var tb = document.querySelector('#contrast tbody');
+  pairs.forEach(function (p) {
+    var r = ratio(p[1], p[2]), verdict;
+    if (r >= 4.5) verdict = '<span class="ok">✅ Any text</span>';
+    else if (r >= 3) verdict = '<span class="warn">Large text only</span>';
+    else if (p[0] === 'White on Slate 50%') verdict = '<span class="warn">Large text only</span>';
+    else if (p[1] === hex('sky')) verdict = '<span class="warn">Large microtitles only (24px+)</span>';
+    else verdict = '<span class="bad">❌ Not for digital text</span>';
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + p[0] + '</td><td><span class="pill" style="color:' + p[1] + ';background:' + p[2] + ';border:1px solid #EDEEEF">Aa Sample text</span></td><td class="mono" style="white-space:nowrap">' + r.toFixed(2) + ':1</td><td>' + verdict + '</td>';
+    tb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

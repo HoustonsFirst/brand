@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.tmp
+# Licensed fonts must never be committed (Adobe Fonts)
+assets/fonts/*.otf
+assets/fonts/*.ttf
+assets/fonts/*.woff
+assets/fonts/*.woff2
+!assets/fonts/OFL-*
