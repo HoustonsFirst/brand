@@ -16,7 +16,7 @@ Those belong in the private `houstonsfirst/playbook` repository.
 ## Ownership
 
 - **Content authority:** Communications Team. They decide what the standards say. Agents may fix formatting, links, and typos; substantive changes must be proposed and confirmed by Communications.
-- **Maintainers:** Nguyen Nguyen (`@nguyennguyennguyennguyennguyen`), Yesu Chum (`@YesuCS`).
+- **Maintainers:** Nguyen Nguyen (`@nguyenernguyener`), Yesu Chum (`@YesuCS`).
 
 ## Rules
 
