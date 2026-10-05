@@ -2,7 +2,7 @@
 
 The public source of truth for **Houston's First Baptist Church** brand standards: identity, colors, typography, voice, and writing style. It's built so people *and* AI tools can produce consistent, on-brand work.
 
-> **Status:** v1.0.0. Content authority: Houston's First **Communications Team**. Maintained by the Development Team.
+> **Status:** v1.1.0. Content authority: Houston's First **Communications Team**. Maintained by the Development Team.
 
 ## For AI agents
 

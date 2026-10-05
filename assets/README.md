@@ -4,7 +4,7 @@ Web-ready exports only. Master design files (`.ai`, `.psd`, `.indd`) stay with t
 
 ## Logos
 
-Naming: `{scope}-{lockup}-{variant}.{ext}`. Lockup is `primary`, `stacked`, or `mark`. Variant is `black` for light backgrounds or `white` for dark backgrounds.
+Naming: `houstonsfirst[-{campus}]-{lockup}-{variant}.{ext}`. Lockup is `primary` (horizontal), `stacked` (vertical), or `mark`. Variant is `black` for light backgrounds or `white` for dark backgrounds. Campuses share the campuswide mark, so campus folders have no `mark` files.
 
 ```
 logos/
@@ -12,22 +12,39 @@ logos/
 │   ├── houstonsfirst-primary-black.svg     houstonsfirst-primary-white.svg
 │   ├── houstonsfirst-stacked-black.svg     houstonsfirst-stacked-white.svg
 │   ├── houstonsfirst-mark-black.svg        houstonsfirst-mark-white.svg
-│   └── png/                            ← same names, @1x and @2x, for Office/email
+│   └── png/                                ← same names, plus @2x
 ├── loop-campus/
-│   └── loop-primary-black.svg    loop-primary-white.svg    …
-├── cypress-campus/
-├── downtown-campus/
-└── sienna-campus/
+│   ├── houstonsfirst-loop-primary-black.svg    houstonsfirst-loop-primary-white.svg
+│   ├── houstonsfirst-loop-stacked-black.svg    houstonsfirst-loop-stacked-white.svg
+│   └── png/
+├── cypress-campus/                         ← houstonsfirst-cypress-…
+├── downtown-campus/                        ← houstonsfirst-downtown-…
+└── sienna-campus/                          ← houstonsfirst-sienna-…
 ```
 
 | Status | File set | Notes |
 |---|---|---|
-| ☐ | Campuswide: primary, stacked, mark × black/white | Request from Creative Team |
-| ☐ | Loop Campus | |
-| ☐ | Cypress Campus | |
-| ☐ | Downtown Campus | |
-| ☐ | Sienna Campus | |
+| ☑ | Campuswide: primary, stacked, mark × black/white | |
+| ☑ | The Loop Campus: primary, stacked × black/white | |
+| ☑ | Cypress Campus: primary, stacked × black/white | |
+| ☑ | Downtown Campus: primary, stacked × black/white | |
+| ☑ | Sienna Campus: primary, stacked × black/white | |
 | n/a | Houston's First en Español | A ministry of The Loop Campus, not a campus, so no campus logo. Add a ministry mark here only if one exists |
+
+### Which file to use
+
+- **Web:** SVG. Each file has `role="img"` and a `<title>`, so it has an accessible name when inlined. Still give `<img>` tags an `alt`.
+- **Microsoft Office, email, video:** PNG from `png/`. Transparent background. `@1x` is 150px tall for primary lockups and 300px tall for stacked and mark; `@2x` is double. Scale down only.
+
+### Updating the files
+
+Master files stay with the Creative Team. When they send new SVG exports, rebuild everything here with:
+
+```bash
+python3 scripts/build-logos.py path/to/exports
+```
+
+The script renames to the convention above, strips editor metadata, sets one fill per file, adds the title, and renders the PNGs. It needs Google Chrome and Pillow (`pip install pillow`).
 
 ## Fonts
 
